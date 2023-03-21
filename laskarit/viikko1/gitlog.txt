@@ -1,0 +1,62 @@
+commit 9532503cba73a7da6b6cc3f1b6d718f048b3904e
+Author: GlobalYam <aarni.hellen@gmail.com>
+Date:   Tue Mar 21 14:46:37 2023 +0200
+
+    tiedostoja lisätty
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 89dbd92ed5f00eb03211ef8e49162edddc51697e
+Author: GlobalYam <aarni.hellen@gmail.com>
+Date:   Tue Mar 21 13:55:24 2023 +0200
+
+    molempia muokattu, poistoja ja lisäyksiä, hunks staged :D
+
+ eka.txt    | 3 +--
+ kolmas.txt | 5 ++++-
+ 2 files changed, 5 insertions(+), 3 deletions(-)
+
+commit 05ee96879c45078513c45e51f536656757023cd1
+Author: GlobalYam <aarni.hellen@gmail.com>
+Date:   Tue Mar 21 13:51:02 2023 +0200
+
+    uudelleen nimeäminen
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 4131374d413221310711cd0335c3858875ec85de
+Author: GlobalYam <aarni.hellen@gmail.com>
+Date:   Tue Mar 21 13:48:39 2023 +0200
+
+    toinen poistettu
+
+ toinen.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 2a2f5071623e018523efd89ec3c50fbff0dbcafa
+Author: GlobalYam <aarni.hellen@gmail.com>
+Date:   Tue Mar 21 13:40:12 2023 +0200
+
+    muokattiin copypastaa jonkiverra
+
+ tiedosto.txt | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+commit df2f351b9bd2c0e76372015683b30857882a6648
+Author: GlobalYam <aarni.hellen@gmail.com>
+Date:   Tue Mar 21 13:38:44 2023 +0200
+
+    copypasta lisätty
+
+ tiedosto.txt | 974 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 972 insertions(+), 2 deletions(-)
+
+commit 68c24abcd7a5e04610562fb4153b2a0780b41eff
+Author: GlobalYam <aarni.hellen@gmail.com>
+Date:   Tue Mar 21 13:19:39 2023 +0200
+
+    neljäs lisäys stuff
