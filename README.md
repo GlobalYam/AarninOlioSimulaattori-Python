@@ -16,3 +16,5 @@ LINKIT!!!:
 
 
 [komentorivi](https://github.com/GlobalYam/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt).
+
+mahtavaa!
