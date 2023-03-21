@@ -9,3 +9,8 @@ KOska sanoin niin
 ```bash
 osaan jopa olla koodia :)))
 ```
+
+LINKIT!!!:
+
+[gitlog](https://github.com/GlobalYam/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt).
+[komentorivi](https://github.com/GlobalYam/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt).
