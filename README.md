@@ -1,14 +1,10 @@
-# TÄMÄ ON HIENO README!!! :3
+# OlioSim
 
-Sanoisin jopa, että paras readme!
+Tässä on Oliosimulaattorin alun README
 
-## MIKSI?
+## MIKÄ ON KYSEESSÄ?
 
-KOska sanoin niin
-
-```bash
-osaan jopa olla koodia :)))
-```
+Kyseessä on oliosimulaattori, joka simuloi olentoja!
 
 LINKIT!!!:
 
