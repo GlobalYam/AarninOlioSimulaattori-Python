@@ -1,10 +1,10 @@
-# OlioSim
+# Tyrmä-generaattori
 
-Tässä on Python-TyrmäGeneraattiorin alun README
+Tässä on Python-Tyrmä-Generaattiorin alun README
 
 ## MIKÄ ON KYSEESSÄ?
 
-Kyseessä on Python-TyrmäGeneraattiori, joka generoi linnojen/tyrmien/luolien käytäviä!
+Kyseessä on Python-Tyrmä-Generaattiori, joka generoi linnojen/tyrmien/luolien käytäviä!
 Inspiraationa Rogue-pelin tasot ja muiden Rogue-Like-pelien versiot samasta ideasta
 
 LINKIT:
