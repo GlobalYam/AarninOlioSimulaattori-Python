@@ -1,39 +1,32 @@
 # Vaatimusmäärittely
 
 ## PROJEKTI LYHYESTI:
-- Käyttäjä voi luoda yksinkertaisen ympäristön ja sen parametrit
-- Käyttäjä pystyy määrittelyn jälkeen simuloida ympäristön
-- Simuloitu ympäristö sisältää olioita 
-- Simuloitujen olioiden toiminta riippuu asetetuista parametreistä, ja soveltuu niihin
-- Oliot kokevat mutaatioita lisääntyessään, jotka ajankuluessa aiheuttavat oliolajin soveltumisen ympäristöön
+- Ohjelman tuotos olisi järkevän näköinen linna/tyrmä/luola
+- Linnan huoneet koostuisivat esimerkkihuoneista, joita käyttäjä voisi muokata halutessaan
+- Projekti olisi toteutettu ruudukossa jossa merkit kuvaavat seiniä, laittoita ja ovia
 
 ## Toiminta käytännössä:
-- ohjelma jakautuu kahteen selvään vaiheeseen: suunnittelu, ja simulaatio
-- suunnittelussa käyttäjä voi vaikuttaa olosuhteisiin ennen simulaatiota
-- simulaatiossa käyttäjä pystyy seurata simulaatiota ja tallentaa olentoja ja tilanteita
-- simulaatio vaihe tarjoaa myös vaihtoethoja olioiden tarkastelemiselle yksityiskohtaisemmin
+- Käyttäjälle ohjelma jakautuu kahteen pää-näkymään, tyrmän määrittelyyn ja tyrmän generoimiseen
+- Tyrmän määrittelyssä käyttäjä voi määrittää halutun: koon, huoneiden määrän, huoneiden "tyypit" 
+- Tyrmän generoimisen aikana käyttäjä näkisi reaaliajassa tyrmän luomisprosessin ja voisi toistaa prosessin
+- Tyrmien generoimisen aikana käyttäjä voisi tallentaa tyrmän määrittelemään tiedostokohteeseen 
+
+## Visuaalinen esimerkki:
+- Inspiraationa toimii Rogue-pelin tasosysteemi, kuva alla:
+(https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/Rogue_Instruction_Manual_©_1985_EPYX_Inc.png)
+
 
 ## Käyttöliittymä
-- Ensin yksinkertainen ja tekstipohjainen.
-- mahdollista kehittää monimutkaisemmaksi, loppullisesti graaffinen 
-
-## Näkymät
-- Alkuun ASCII merkeillä kuvatut olosuhteet helppouden kannalta.
-- graaffiset ja kuvitetut kuvakkeet solujen sisällölle
+- Tekstipohjainen, Ruudukon solujen sisällöt voidaan kuvata ASCII-merkeillä
+- Esimerkkihuoneet voivat määrittää tekstitiedostossa.
 
 ## Käyttäjät
 - Käyttäjätyyppejä olisi vain yksi
-- Käyttäjä voi tallentaa omia tilanteitaan ja avata muiden omia
+- Käyttäjä voi tallentaa omia luomuksiaan ja avata omia sekä muiden omia
 
-## Oliot ja Maailma
-- Maailmassa olisi staattisia ja elollisia solutyyppejä.
-- Staattiset solut toimisivat typpinsä sääntöjen mukaisesti. (korkea paine pyrkii tasautumaan)
-- Elolliset solut kykenisivät monimutkaisempiin toimintoihin ja menehtyvät ilman energiaa, muuttuen staattiseksi.
-- Tyhjät Staattiset solut täyttyvät energialla (riippuen olosuhde määrittelystä)
-- Mikäli tyhjä solu on täynnä ennergiaa, siihen saattaa syntyä ravintoa
-- Eliöt kykenevät keräämään energiaa syömällä ravintoa
-- Menehtyneet eliöt muuttuvat staattiseksi ravinnoksi
-- Eliöt kykenevät käyttämään huomattavan määrän energiaa itsensä kopioimiseen (mitoosi)
-- Eliön kopiointiprosessi ei ole virheetön ja sisältää mutaatioita
-- Eliön toiminta riippuu geeneistä, jotka periytyvät kopioille (mahdollisesti mutaatioilla)
-- Eliöt kykenevät manipuloimaan ympäristöään
+## Jatkokehitys-Ideoita
+- Tyrmä-Seikkailu olisi kolmas näkymä jossa käyttäjä voisi päättää tutkia tyrmää ohjaamalla pelaajahahmoa
+- Tyrmä-Seikkailussa voisi löytää portaikkoja alemmille tasoille
+- Tyrmä-Seikkailussa voisi olla myös vastustajia ja aarteita
+- Näkymät ja käyttöliittymät voisivat myös olla graaffisia
+- Generaatioprosessit voisivat olla monimutkaisempia
