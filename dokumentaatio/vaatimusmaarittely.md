@@ -13,7 +13,8 @@
 
 ## Visuaalinen esimerkki:
 - Inspiraationa toimii Rogue-pelin tasosysteemi, kuva alla:
-(https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/Rogue_Instruction_Manual_©_1985_EPYX_Inc.png)
+
+![Rogue manual](https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/Rogue_Instruction_Manual_©_1985_EPYX_Inc.png)
 
 
 ## Käyttöliittymä
