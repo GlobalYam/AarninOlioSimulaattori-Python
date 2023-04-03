@@ -15,3 +15,6 @@ LINKIT:
 
 [Vaatimusmäärittely](https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/vaatimusmaarittely.md)
 
+[Työtunnit](https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/työtunnit.md>
+
+[Changelog](https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/changelog.md>
