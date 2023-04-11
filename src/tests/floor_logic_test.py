@@ -1,6 +1,7 @@
 import unittest
 from logic.floor_logic import create_floor
 
+
 class TestCreate_floor(unittest.TestCase):
     def setUp(self):
         pass
@@ -12,7 +13,7 @@ class TestCreate_floor(unittest.TestCase):
         self.floor = create_floor(self.w, self.h)
 
         self.assertNotEqual(self.floor, '#')
-    
+
     def test_small_room(self):
         self.w = 5
         self.h = 5

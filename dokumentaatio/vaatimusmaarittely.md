@@ -2,13 +2,15 @@
 
 ## PROJEKTI LYHYESTI:
 - Ohjelman tuotos olisi järkevän näköinen linna/tyrmä/luola
-- Linnan huoneet koostuisivat esimerkkihuoneista, joita käyttäjä voisi muokata halutessaan
+- Tyrmän huoneet koostuisivat esimerkkihuoneista, joita käyttäjä voisi muokata halutessaan
+- Tyrmän huoneet asettautuisivat järkevästi ruudukkoon - tehty (huoneet asetetaan satunnaisesti)
+- Tyrmän huoneet yhdistyisivät toisiinsa käytävillä
 - Projekti olisi toteutettu ruudukossa jossa merkit kuvaavat seiniä, laittoita ja ovia
 
 ## Toiminta käytännössä:
-- Käyttäjälle ohjelma jakautuu kahteen pää-näkymään, tyrmän määrittelyyn ja tyrmän generoimiseen
+- Käyttäjälle ohjelma jakautuu kahteen pää-näkymään; tyrmän määrittelyyn ja tyrmän generoimiseen
 - Tyrmän määrittelyssä käyttäjä voi määrittää halutun: koon, huoneiden määrän, huoneiden "tyypit" 
-- Tyrmän generoimisen aikana käyttäjä näkisi reaaliajassa tyrmän luomisprosessin ja voisi toistaa prosessin
+- Tyrmän generoimisen aikana käyttäjä näkisi reaaliajassa tyrmän luomisprosessin ja voisi toistaa prosessin - tehty (tyrmän voi uudelleenluora painamalla r näppäintä, luomisprosessi tapahtuu välittömästi)
 - Tyrmien generoimisen aikana käyttäjä voisi tallentaa tyrmän määrittelemään tiedostokohteeseen 
 
 ## Visuaalinen esimerkki:
@@ -18,8 +20,8 @@
 
 
 ## Käyttöliittymä
-- Tekstipohjainen, Ruudukon solujen sisällöt voidaan kuvata ASCII-merkeillä
-- Esimerkkihuoneet voivat määrittää tekstitiedostossa.
+- Tekstipohjainen, Ruudukon solujen sisällöt kuvataan ASCII-merkeillä - tehty (väreillä, ei ASCII)
+- Esimerkkihuoneet voivat määrittää tekstitiedostossa. - tehty (halutessaan tiedostoja voi muokata ja lisätä)
 
 ## Käyttäjät
 - Käyttäjätyyppejä olisi vain yksi

@@ -1,72 +1,41 @@
-import random
-import pygame
-from pygame.locals import *
-import math
+# import random
+# import math
+import sys
+import pygame as pg
 from logic.floor_logic import create_floor
+# from logic.floor_logic import place_room
+from gui.gui_manager import ScreenManager
+
 
 # PYGAME INIT & SCREEN
-pygame.init()
-screen_w = (pygame.display.Info().current_w)//2
-screen_h = (pygame.display.Info().current_h)//2
-DISPLAYSURF = pygame.display.set_mode((screen_w, screen_h))
-# print(f'(W, H): {(screen_w, screen_h)}')
+pg.init()
+SCREEN_W = (pg.display.Info().current_w)//2
+SCREEN_H = (pg.display.Info().current_h)//2
 
 # VARIABLES
-grid_width = 40
-grid_height = 22
-my_grid = create_floor(grid_width, grid_height)
+GRID_WIDTH = 70
+GRID_HEIGHT = 40
+my_grid = create_floor(GRID_WIDTH, GRID_HEIGHT)
 
 # PYGAME DRAW LOGIC
-# fullscreen_offsets
-x_fullscreen_offset = 0
-y_fullscreen_offset = 0
-
-# Check if cell cize is restricted by having to fit grid to width or height
-if (screen_h // (grid_height)) < (screen_w // (grid_width)):
-    cell_size = (screen_h // (grid_height))
-else:
-    cell_size = (screen_w // (grid_width))
-
-x_offset = (screen_w - (grid_width)*cell_size)//2
-y_offset = (screen_h - (grid_height)*cell_size)//2
+# create a screen_manager
+my_screen_manager = ScreenManager(SCREEN_H, SCREEN_W, GRID_HEIGHT, GRID_WIDTH)
 
 # PYGAME LOOP
 while True:
-    ii = -1
-    for i in my_grid:
-        ii += 1
-        jj = -1
-        for j in i:
-            jj += 1
-            # Figure out color
-            cell_color = (0,0,0)
+    # update the screen
+    my_screen_manager.draw_screen_from_grid(my_grid)
 
-            if j == '#':
-                cell_color = (50, 50, 50)
-            if j == '=':
-                cell_color = (100, 100, 100)
-            if j == '.':
-                cell_color = (200, 200, 200)
+    # manage events, to be moved to user interface
+    for event in pg.event.get():
+        if event.type == pg.QUIT:
+            sys.exit()
+        if event.type == pg.KEYDOWN:
+            if event.key == pg.K_q:
+                sys.exit()
+            elif event.key == pg.K_f:
+                my_screen_manager.toggle_fullsreen()
 
-            x1 = int(jj * cell_size) + x_offset + x_fullscreen_offset
-            y1 = int(ii * cell_size) + y_offset + y_fullscreen_offset
-            x2 = cell_size
-            y2 = cell_size
-            pygame.draw.rect(DISPLAYSURF, cell_color, pygame.Rect(x1, y1, x2, y2))
-    
-    pygame.display.flip()
-
-    for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                exit()
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_q:
-                    exit()
-                elif event.key == pygame.K_f:
-                    pygame.display.set_mode((0,0), pygame.FULLSCREEN)
-                    x_fullscreen_offset = screen_w//2
-                    y_fullscreen_offset = screen_h//2
-                elif event.key == pygame.K_w:
-                    DISPLAYSURF = pygame.display.set_mode((screen_w, screen_h))
-                    x_fullscreen_offset = 0
-                    y_fullscreen_offset = 0
+            # reset entire floor
+            if event.key == pg.K_r:
+                my_grid = create_floor(GRID_WIDTH, GRID_HEIGHT)

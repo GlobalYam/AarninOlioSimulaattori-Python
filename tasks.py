@@ -6,12 +6,12 @@ def foo(ctx):
 
 @task
 def start(ctx):
-    ctx.run("python src/run_program.py", pty = True) #pty = False)
+    ctx.run("python src/run_program.py", pty = False) #pty = True)
 
 @task
 def test(ctx):
-    ctx.run("coverage run --branch -m pytest", pty = True)
+    ctx.run("coverage run --branch -m pytest", pty = False)
 
 @task
 def coverage_report(ctx):
-    ctx.run("coverage report -m", pty = True)
+    ctx.run("coverage report -m", pty = False)
