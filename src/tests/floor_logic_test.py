@@ -1,8 +1,8 @@
 import unittest
-from logic.floor_logic import create_floor
+from logic.floor_logic import GridManager
 
 
-class TestCreate_floor(unittest.TestCase):
+class TestGridManager(unittest.TestCase):
     def setUp(self):
         pass
 
@@ -10,14 +10,72 @@ class TestCreate_floor(unittest.TestCase):
         self.w = 1
         self.h = 1
 
-        self.floor = create_floor(self.w, self.h)
+        self.manager = GridManager()
+        self.manager.clear_floor(self.w, self.h)
 
-        self.assertNotEqual(self.floor, '#')
+        self.floor = self.manager.my_grid
+
+        self.assertEqual(self.manager.my_grid, [['#']])
 
     def test_small_room(self):
         self.w = 5
         self.h = 5
 
-        self.floor = create_floor(self.w, self.h)
+        self.manager = GridManager()
+        self.floor = self.manager.clear_floor(self.w, self.h)
 
-        self.assertNotEqual(self.floor, '#####\n#===#\n#=-=#\n#===#\n#####')
+        self.assertEqual(self.manager.my_grid,  [['#', '#', '#', '#', '#'],
+                                                 ['#', '=', '=', '=', '#'],
+                                                 ['#', '=', '-', '=', '#'],
+                                                 ['#', '=', '=', '=', '#'],
+                                                 ['#', '#', '#', '#', '#']
+                                                 ])
+        
+    def test_update(self):
+        self.w = 5
+        self.h = 5
+
+        self.manager = GridManager()
+        self.floor = self.manager.clear_floor(self.w, self.h)
+
+        self.assertEqual(self.manager.update(), True)
+    
+    def test_no_update(self):
+        self.w = 5
+        self.h = 5
+
+        self.manager = GridManager()
+        self.floor = self.manager.clear_floor(self.w, self.h)
+
+        self.manager.update()
+
+        self.assertEqual(self.manager.update(), False)
+
+    def test_6x6_room(self):
+        self.w = 6
+        self.h = 6
+
+        self.manager = GridManager()
+        self.floor = self.manager.clear_floor(self.w, self.h)
+
+        self.assertEqual(self.manager.my_grid,  [['#', '#', '#', '#', '#', '#'],
+                                                 ['#', '=', '=', '=', '=', '#'],
+                                                 ['#', '=', '-', '-', '=', '#'],
+                                                 ['#', '=', '-', '-', '=', '#'],
+                                                 ['#', '=', '=', '=', '=', '#'],
+                                                 ['#', '#', '#', '#', '#', '#']
+                                                 ])
+    
+    def test_check_if_free(self):
+        self.w = 20
+        self.h = 20
+
+        self.manager = GridManager()
+        self.floor = self.manager.clear_floor(self.w, self.h)
+
+        free = self.manager.check_if_free(self.manager.my_grid, 10, 10, 1, 1)
+
+        self.assertEqual(free, True)
+        
+        
+

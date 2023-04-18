@@ -1,5 +1,6 @@
 import os
 
+
 def read_room_data(path):
     room_grid = []
     with open(path, encoding="utf-8") as file:

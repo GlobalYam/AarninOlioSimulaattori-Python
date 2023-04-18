@@ -14,3 +14,5 @@ DOKUMENTAATIO:
 [Changelog](https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/changelog.md)
 
 [Ohje](https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/guide.md)
+
+[Arkkitehtuuri](https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/arkkitehtuuri.md)
