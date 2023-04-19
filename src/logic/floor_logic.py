@@ -13,6 +13,9 @@ class GridManager:
         self.grid_width = 0
         self.grid_height = 0
 
+        # door array used to store the door coordinates of each room.
+        self.door_array = []
+
     def update(self):
         if self.grid_updated:
             self.grid_updated = False
@@ -96,9 +99,16 @@ class GridManager:
                 for x in range(room_width+2):  # pylint: disable=invalid-name
                     grid[y+rm_y-1][x+rm_x-1] = '='
             # place tiles from room to grid
+
+            # add new list to door_array
+            self.door_array.append([])
+
             for y in range(room_height):  # pylint: disable=invalid-name
                 for x in range(room_width):  # pylint: disable=invalid-name
                     grid[y+rm_y][x+rm_x] = room[y][x]
+                    # check if the added tile is a door, if so, add door coordinates to door_array
+                    if room[y][x] == 'D':
+                        self.door_array[-1].append((y+rm_y, x+rm_x))
         else:
             return False
         return grid

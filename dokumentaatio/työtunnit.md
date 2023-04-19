@@ -9,4 +9,7 @@
 | 18.4.2023 | 3 | käyttäjä inputin jakaminen omaan luokkaan |
 | 18.4.2023 | 2 | pylint siivousta ja formatterin lisääminen |
 | 18.4.2023 | 1 | testien lisääminen |
-| yht       | 14 | | 
+| 19.4.2023 | 1 | projektin suunnittelu ja pieniä muokkauksia |
+| 19.4.2023 | 1 | näytölle piirtämisen erottelu |
+| 19.4.2023 | 2 | polkujen implementaation alku |
+| yht       | 20 | | 

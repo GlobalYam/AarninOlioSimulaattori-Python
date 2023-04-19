@@ -30,7 +30,7 @@ class TestGridManager(unittest.TestCase):
                                                  ['#', '=', '=', '=', '#'],
                                                  ['#', '#', '#', '#', '#']
                                                  ])
-        
+
     def test_update(self):
         self.w = 5
         self.h = 5
@@ -39,7 +39,7 @@ class TestGridManager(unittest.TestCase):
         self.floor = self.manager.clear_floor(self.w, self.h)
 
         self.assertEqual(self.manager.update(), True)
-    
+
     def test_no_update(self):
         self.w = 5
         self.h = 5
@@ -65,7 +65,7 @@ class TestGridManager(unittest.TestCase):
                                                  ['#', '=', '=', '=', '=', '#'],
                                                  ['#', '#', '#', '#', '#', '#']
                                                  ])
-    
+
     def test_check_if_free(self):
         self.w = 20
         self.h = 20
@@ -76,6 +76,3 @@ class TestGridManager(unittest.TestCase):
         free = self.manager.check_if_free(self.manager.my_grid, 10, 10, 1, 1)
 
         self.assertEqual(free, True)
-        
-        
-
