@@ -9,7 +9,7 @@ Inspiraationa Rogue-pelin tasonluontialgoritmi ja monet muut pelit jotka ovat im
 Lisää informaatiota voi löytää dokumentaatiosta.
 Käyttöohjeet linkattu alempana.
 
-##RELEASE:
+## RELEASE:
 
 [VIIMEISIN RELEASE](https://github.com/GlobalYam/Python-Tyrma-Generaattori/releases)
  
