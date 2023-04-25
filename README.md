@@ -5,6 +5,10 @@
 Kyseessä on Python-Tyrmä-Generaattiori, joka generoi linnojen/tyrmien/luolien käytäviä
 Inspiraationa Rogue-pelin tasot ja muiden Rogue-Like-pelien versiot samasta ideasta
 
+##RELEASE:
+
+[VIIMEISIN RELEASE](https://github.com/GlobalYam/Python-Tyrma-Generaattori/releases)
+ 
 DOKUMENTAATIO:
 
 [Vaatimusmäärittely](https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/vaatimusmaarittely.md)
