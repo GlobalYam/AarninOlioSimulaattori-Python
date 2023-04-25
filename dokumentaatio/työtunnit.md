@@ -12,4 +12,8 @@
 | 19.4.2023 | 1 | projektin suunnittelu ja pieniä muokkauksia |
 | 19.4.2023 | 1 | näytölle piirtämisen erottelu |
 | 19.4.2023 | 2 | polkujen implementaation alku |
+| 24.4.2023 | 1 | polkujen suunnittelu |
+| 24.4.2023 | 5 | polkujen a* algoritmin aloitus |
+| 25.4.2023 | 4 | polkujen implementointi |
+| 25.4.2023 | 1 | release valmistelut |
 | yht       | 20 | | 

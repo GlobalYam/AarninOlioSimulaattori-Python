@@ -4,7 +4,7 @@
 - Ohjelman tuotos olisi järkevän näköinen linna/tyrmä/luola
 - Tyrmän huoneet koostuisivat esimerkkihuoneista, joita käyttäjä voisi muokata halutessaan - tehty
 - Tyrmän huoneet asettautuisivat järkevästi ruudukkoon - tehty (huoneet asetetaan satunnaisesti)
-- Tyrmän huoneet yhdistyisivät toisiinsa käytävillä (a* algoritmi?)
+- Tyrmän huoneet yhdistyisivät toisiinsa käytävillä (a* algoritmi?) - tehty (polut ovat minimi-toiminnalisia)
 - Projekti olisi toteutettu ruudukossa jossa merkit kuvaavat seiniä, laittoita ja ovia - tehty
 
 ## Toiminta käytännössä:

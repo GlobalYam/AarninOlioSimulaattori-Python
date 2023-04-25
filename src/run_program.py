@@ -25,6 +25,13 @@ my_grid = my_grid_manager.create_floor(GRID_WIDTH, GRID_HEIGHT)
 # create a screen_manager
 my_screen_manager = ScreenManager(SCREEN_W, SCREEN_H, my_grid_manager)
 
+# quick instructions
+print('R - generate new floor')
+print('F - fullscreen')
+print('D - generate doors')
+# print('S - save')
+print('Q - quit')
+
 # PYGAME LOOP
 while True:
     # update the screen

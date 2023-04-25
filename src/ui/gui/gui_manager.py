@@ -50,10 +50,22 @@ class ScreenManager:
                             cell_color = (80, 80, 80)
                         case  '.':
                             cell_color = (80, 80, 80)
+                        case  '-':
+                            cell_color = (5, 5, 5)
                         case _:
-                            cell_color = (0, 0, 0)
+                            cell_color = (200, 200, 200)
 
                     self.draw_cell_to_screen(grid_manager, x, y, cell_color)
+
+            for i, room_doors in enumerate(grid_manager.door_array):
+                # get fun colors for each door
+                i += 1
+                color = ((i*i*225*7) % 255, (i*i*225*3) %
+                         255, (i*i*225*9) % 255)
+                for door in room_doors:
+                    self.draw_cell_to_screen(
+                        grid_manager, door[0], door[1], color)
+
             pg.display.flip()
 
     def draw_cell_to_screen(self, grid_manager, x, y, cell_color):

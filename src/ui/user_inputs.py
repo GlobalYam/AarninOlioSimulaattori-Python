@@ -23,3 +23,12 @@ def key_events(my_screen_manager, my_grid_manager):
             if event.key == pg.K_r:
                 for i, row in enumerate(my_grid_manager.create_floor(my_grid_manager.grid_width, my_grid_manager.grid_height)):
                     my_grid_manager.my_grid[i] = row
+
+            # GENERATE DOORS
+            if event.key == pg.K_d:
+                my_grid_manager.generate_paths()
+                print('generate paths')
+
+            # debug update
+            if event.key == pg.K_u:
+                my_screen_manager.screen_update = True
