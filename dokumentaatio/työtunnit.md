@@ -16,4 +16,5 @@
 | 24.4.2023 | 5 | polkujen a* algoritmin aloitus |
 | 25.4.2023 | 4 | polkujen implementointi |
 | 25.4.2023 | 1 | release valmistelut |
-| yht       | 34 | | 
+| 3.5.2023  | 4 | lisäyksiä polkuihin |
+| yht       | 38 | | 

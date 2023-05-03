@@ -90,7 +90,7 @@ class GridManager:
         # grid_width  = range(grid[0])
 
         room_height = len(room)
-        room_width = len(room[0])
+        room_width  = len(room[0])
 
         if place_by_center:
             rm_x -= room_width//2
@@ -118,7 +118,7 @@ class GridManager:
 
         return grid
 
-    def check_if_free(self, grid: list, rm_x: int, rm_y: int, room_height: int, room_width: int):
+    def check_if_free(self, grid: list, rm_x: int, rm_y: int, room_height: int, room_width: int, exeptions = []):
         grid_height = len(grid)
         grid_width = len(grid[0])
 
@@ -127,7 +127,7 @@ class GridManager:
         for y in range(rm_y, rm_y+room_height):  # pylint: disable=invalid-name
             for x in range(rm_x, rm_x+room_width):  # pylint: disable=invalid-name
                 cell = grid[y][x]
-                if cell != '-':
+                if cell != '-' and not cell in exeptions:
                     return False
         return True
 
@@ -150,8 +150,39 @@ class GridManager:
         return grid
 
     def generate_paths(self):
-        if len(self.door_array) > self.solved_paths:
-            self.grid_updated = True
-            my_path_manager = PathManager(self)
-            my_path_manager.generate_paths(self.solved_paths)
-            self.solved_paths += 1
+        if len(self.door_array) <= self.solved_paths:
+            self.solved_paths = 0
+        
+        self.grid_updated = True
+        my_path_manager = PathManager(self)
+        list_of_coords = my_path_manager.generate_paths(self.solved_paths)
+        
+        for coords in list_of_coords:
+            # kaikki ympäröivät solut
+            top_left  = (coords[0]-1, coords[1]-1) # x, y
+            top_mid   = (coords[0]-1, coords[1]  ) # x, y
+            top_right = (coords[0]-1, coords[1]+1) # x, y
+
+            mid_left  = (coords[0],   coords[1]-1) # x, y
+            mid_mid   = (coords[0],   coords[1]  ) # x, y
+            mid_right = (coords[0],   coords[1]+1) # x, y
+
+            bot_left  = (coords[0]+1, coords[1]-1) # x, y
+            bot_mid   = (coords[0]+1, coords[1]  ) # x, y
+            bot_right = (coords[0]+1, coords[1]+1) # x, y
+
+            surrounding_cels = [top_left, top_mid, top_right,  mid_left, mid_mid, mid_right,  bot_left, bot_mid, bot_right]
+
+            for cell_to_seal in surrounding_cels:
+                self.place_tile(self.my_grid, cell_to_seal[0], cell_to_seal[1], '#')
+        self.solved_paths += 1
+
+    def place_tile(self, grid: list, t_x: int, t_y: int, tile: str, exeptions = ['=']):
+        self.grid_updated = True
+
+        if not self.check_if_free(grid, t_x, t_y, 1, 1, exeptions):
+            return False
+        
+        grid[t_y][t_x] = tile
+        
+        

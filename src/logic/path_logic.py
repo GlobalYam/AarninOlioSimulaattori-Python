@@ -28,7 +28,6 @@ class PathManager():
         # print(f'temp_paths for current room: {temp_paths}')
         max_path_lenght = 1000
         for iter_num in range(0, max_path_lenght):
-
             lists_used = 4
             # print(f'handling branch repeat num: {iter_num}')
             for i, branch in enumerate(temp_paths):
@@ -50,22 +49,24 @@ class PathManager():
                         # print(branch)
 
                         self.my_grid_manager.my_grid[yy][xx] = 'X'  # pylint: disable=invalid-name
+                        list_of_path_coords.append((xx, yy))
 
                         for rep in range(iter_num):
-                            self.my_grid_manager.my_grid[next_coords[1]
-                                                         ][next_coords[0]] = 'X'
+                            self.my_grid_manager.my_grid[next_coords[1]][next_coords[0]] = 'X'
+                            
                             if temp_grid[next_coords[1]][next_coords[0]] == next_coords:
                                 continue
+
                             list_of_path_coords.append(next_coords)
                             # print(next_coords)
-                            next_coords = temp_grid[next_coords[1]
-                                                    ][next_coords[0]]
+                            next_coords = temp_grid[next_coords[1]][next_coords[0]]
 
-                        # print(list_of_path_coords)
-
+                        return list_of_path_coords
             # print(lists_used)
             if lists_used <= 1:
-                return
+                return []
+        
+        return []
 
     def expand_branch(self, path_parent, grid, temp_paths):
         # print(path_parent)

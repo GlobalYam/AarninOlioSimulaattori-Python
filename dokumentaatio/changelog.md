@@ -19,3 +19,6 @@
 - kokonaan uusi luokka; polkumanageri
 - polkumanagerille annetaan ruudukkomanageri, jonka ruudukon huoneisiin tämä lisää polkuja, yhdistäen huoneita keskenään
 - polkumanagerin polut ovat vielä alkeellisia, mutta toimivat.
+
+## viikko 6
+- polkuihin korjauksia, nyt polut muuraavat omat seinänsä
