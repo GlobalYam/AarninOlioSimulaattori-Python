@@ -22,3 +22,4 @@
 
 ## viikko 6
 - polkuihin korjauksia, nyt polut muuraavat omat seinänsä
+- Docstring lisätty metodeihin

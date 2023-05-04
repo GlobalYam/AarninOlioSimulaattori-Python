@@ -4,6 +4,12 @@ from logic.floor_logic import GridManager
 
 
 def key_events(my_screen_manager, my_grid_manager):
+    """Funktio joka kuuntelee käyttäjän näppäinpainalluksia, ja kutsuu managerien funktioita vastaavien toimintojen perusteella
+
+        Args:
+            my_screen_manager: Näyttömanageri, joka hoitaa näkymän ruudukkomanagerin perusteella.
+            grid_manager:  Ruudukkomanageri, joka sisältää halutut metodit ruudukon muokkaamisen kannalta.
+        """
     for event in pg.event.get():
 
         # QUIT

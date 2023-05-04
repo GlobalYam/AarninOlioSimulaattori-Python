@@ -4,8 +4,28 @@ import pygame as pg
 
 
 class ScreenManager:
+    """Luokka, joka vastaa näytölle piirtämisestä.
+
+    Attributes:
+        self.screen_update: Kertoo mikäli näyttöä tulee päivittää, jos True, piirä näytölle
+        screen_res_default: Oletusarvoinen ikkunan resoluutio
+        screen_w:     Ikkunan leveys
+        screen_h:     Ikkunan korkeus
+        display_surf: Ikkunan taso
+        fullscreen:   Boolean; kertoo ollaanko kokonäytön tilassa
+        cell_size:    Yhden solun sivun koko, jokainen solu on täydellinen neliö
+        x_offset:     Kuinka kaukana ruudukon vasemmalla olevin solu on ikkunan vasemmasta reunasta
+        y_offset:     Kuinka kaukana ruudukon korkeimmalla olevin solu on ikkunan yläreunasta
+    """
 
     def __init__(self, screen_w, screen_h, my_grid_manager):
+        """Luokan konstruktori, joka alustaa managerin.
+
+        Args:
+            screen_w:  näytön määritetty leveys
+            screen_h:  näytön määritetty korkeus
+            my_grid_manager: Luokan kutsunut ruudukkomanageri
+        """
         # screen_updates
         self.screen_update = True
 
@@ -30,7 +50,11 @@ class ScreenManager:
         self.y_offset = (screen_h - (grid_height)*self.cell_size)//2
 
     def draw_screen_from_grid(self, grid_manager):
+        """Metodi joka piirtää ikkunaan annetun ruudukon
 
+        Args:
+            grid_manager:  Ruudukkomanageri, jonka my_grid piirretään näytölle.
+        """
         if grid_manager.update() or self.screen_update:
             print("screen_updated")
             self.screen_update = False
@@ -69,7 +93,14 @@ class ScreenManager:
             pg.display.flip()
 
     def draw_cell_to_screen(self, grid_manager, x, y, cell_color):
+        """Metodi joka piirtää yhden ruudukon solun omalle näytölle
 
+        Args:
+            grid_manager:  Ruudukkomanageri, jonka solu piirretään näytölle.
+            x: x-kordinaatti johon piirrettään (vastaa ruudukko kordinaatteja, ei näyttökordinaatteja)
+            y: y-kordinaatti johon piirrettään (vastaa ruudukko kordinaatteja, ei näyttökordinaatteja)
+            cell_color: haluttu väri jolla pirtää solua vastaava neliö
+        """
         # fullscreen_offsets
         # x_fullscreen_offset = 0
         # y_fullscreen_offset = 0
@@ -98,6 +129,8 @@ class ScreenManager:
                      pg.Rect(x_1, y_1, x_2, y_2))
 
     def toggle_fullsreen(self):
+        """Metodi joka vaihtaa kokonäytöntilaa
+        """
         self.screen_update = True
         if self.fullscreen is False:
             pg.display.set_mode((0, 0), pg.FULLSCREEN)

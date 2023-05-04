@@ -17,4 +17,5 @@
 | 25.4.2023 | 4 | polkujen implementointi |
 | 25.4.2023 | 1 | release valmistelut |
 | 3.5.2023  | 4 | lisäyksiä polkuihin |
-| yht       | 38 | | 
+| 4.5.2023  | 4 | Docstring ja muu dokumentaatio |
+| yht       | 42 | | 

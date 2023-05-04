@@ -1,11 +1,30 @@
 class PathManager():
+    """Luokka, joka vastaa polkujen lisäämisestä.
+
+    Attributes:
+        my_grid_manager: Luokan kutsunut ruudukkomanageri.
+        grid_updated: Kertoo mikäli ruudukkoa on muutettu tällä askeleella, tällä hetkellä turha
+        temp_grid:   Väliaikainen ruudukko, johon voidaan luoda polut
+        room_num:  Huoneen lukunumero, joka yhdistää poluilla
+    """
+
     def __init__(self, my_grid_manager):
+        """Luokan konstruktori, joka alustaa managerin.
+
+        Args:
+            my_grid_manager:  Luokan kutsunut ruudukkomanageri.
+        """
         self.my_grid_manager = my_grid_manager
         self.grid_updated = False
         self.temp_grid = False
         self.room_num = 0
 
     def generate_paths(self, room_to_generate_paths_for):
+        """Luokan konstruktori, joka alustaa managerin.
+
+        Args:
+            room_to_generate_paths_for:  Huoneen lukunumero, joka yhdistää poluilla.
+        """
         # door array used to store the door coordinates of each room.
         # self.my_grid_manager.door_array.copy() #
         temp_doors = [line.copy() for line in self.my_grid_manager.door_array]
@@ -52,23 +71,33 @@ class PathManager():
                         list_of_path_coords.append((xx, yy))
 
                         for rep in range(iter_num):
-                            self.my_grid_manager.my_grid[next_coords[1]][next_coords[0]] = 'X'
-                            
+                            self.my_grid_manager.my_grid[next_coords[1]
+                                                         ][next_coords[0]] = 'X'
+
                             if temp_grid[next_coords[1]][next_coords[0]] == next_coords:
                                 continue
 
                             list_of_path_coords.append(next_coords)
                             # print(next_coords)
-                            next_coords = temp_grid[next_coords[1]][next_coords[0]]
+                            next_coords = temp_grid[next_coords[1]
+                                                    ][next_coords[0]]
 
                         return list_of_path_coords
             # print(lists_used)
             if lists_used <= 1:
                 return []
-        
+
         return []
 
     def expand_branch(self, path_parent, grid, temp_paths):
+        """Metodi joka laajentaa haaraa yhdellä askeleella eteenpäin.
+
+        Args:
+            path_parent:  polku vanhempi, jota laajentaa.
+            grid:  ruudukko johon lisätä uudet haarat
+            temp_paths:  lista johon lisätään lisätyt solut  
+
+        """
         # print(path_parent)
         x, y = path_parent  # pylint: disable=invalid-name
 
@@ -85,8 +114,8 @@ class PathManager():
             lower_tile = (x,  y+1)   # pylint: disable=invalid-name
             left_tile = (x-1,  y)   # pylint: disable=invalid-name
             right_tile = (x+1,  y)   # pylint: disable=invalid-name
-        except:
-            raise 'OOPS, INVALID TILE INPUT'
+        except Exception as exc:
+            raise 'OOPS, INVALID TILE INPUT' from exc
 
         child_tiles = [upper_tile, lower_tile, left_tile, right_tile]
 
