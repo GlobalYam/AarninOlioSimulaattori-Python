@@ -18,6 +18,12 @@ def coverage(ctx):
     ctx.run("coverage report -m", pty = False)
 
 @task
+def coveragereport(ctx):
+    ctx.run("coverage run --branch -m pytest src", pty = False)
+    ctx.run("coverage report -m", pty = False)
+    ctx.run("coverage html", pty=False)
+
+@task
 def format(ctx):
     ctx.run("autopep8 --in-place --recursive src", pty = False)
 

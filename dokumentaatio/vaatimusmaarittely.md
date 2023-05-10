@@ -24,6 +24,7 @@
 - Esimerkkihuoneet voivat määrittää tekstitiedostossa. - tehty (halutessaan tiedostoja voi muokata ja lisätä)
 
 ## Käyttäjät
+- EI erityistä tarvetta käyttäjälle
 - Käyttäjätyyppejä olisi vain yksi
 - Käyttäjä voi tallentaa omia luomuksiaan ja avata omia sekä muiden omia
 

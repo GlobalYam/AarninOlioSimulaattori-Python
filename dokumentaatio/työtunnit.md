@@ -18,4 +18,5 @@
 | 25.4.2023 | 1 | release valmistelut |
 | 3.5.2023  | 4 | lisäyksiä polkuihin |
 | 4.5.2023  | 4 | Docstring ja muu dokumentaatio |
-| yht       | 42 | | 
+| 10.5.2023 | 3 | testikattavuuden laajentaminen |
+| yht       | 45 | | 

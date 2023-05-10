@@ -76,3 +76,12 @@ class TestGridManager(unittest.TestCase):
         free = self.manager.check_if_free(self.manager.my_grid, 10, 10, 1, 1)
 
         self.assertEqual(free, True)
+    
+    def test_create_floor_no_room(self):
+        w = 3#70
+        h = 3#40
+        my_grid_manager = GridManager()
+        my_grid = my_grid_manager.create_floor(w, h)
+
+        self.assertEqual([['#', '#', '#'], ['#', '=', '#'], ['#', '#', '#']], my_grid)
+

@@ -37,6 +37,8 @@ class GridManager:
         """
         if self.grid_updated:
             self.grid_updated = False
+            # print(self.my_grid)
+            # print(self.door_array)
             return True
         return False
 
@@ -94,6 +96,7 @@ class GridManager:
                     self.my_grid, x, y, starting_room) is False and fail_counter < fail_counter_max:
                 x = randint(1, grid_width)  # pylint: disable=invalid-name
                 y = randint(1, grid_height)  # pylint: disable=invalid-name
+                fail_counter += 1
         else:
             self.place_room(self.my_grid, grid_width//2,
                             grid_height//2, starting_room)
@@ -109,6 +112,7 @@ class GridManager:
                     self.my_grid, x, y, room) is False and fail_counter < fail_counter_max:
                 x = randint(1, grid_width)  # pylint: disable=invalid-name
                 y = randint(1, grid_height)  # pylint: disable=invalid-name
+                fail_counter += 1
         return self.my_grid
 
     def place_room(self, grid: list, rm_x: int, rm_y: int, room: list, place_by_center=True):
