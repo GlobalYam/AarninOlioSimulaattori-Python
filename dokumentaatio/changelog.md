@@ -23,3 +23,9 @@
 ## viikko 6
 - polkuihin korjauksia, nyt polut muuraavat omat seinänsä
 - Docstring lisätty metodeihin
+
+## viikko 7
+- Testejä laajennettu
+- Pieniä korjauksia
+- paikallisten tiedostojen käytön alku
+- paikallisia tiedostoja voi nyt tallentaa ja ladata tekstimuodossa

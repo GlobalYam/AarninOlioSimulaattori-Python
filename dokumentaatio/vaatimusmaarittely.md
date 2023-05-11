@@ -11,7 +11,7 @@
 - Käyttäjälle ohjelma jakautuu kahteen pää-näkymään; tyrmän määrittelyyn ja tyrmän generoimiseen
 - Tyrmän määrittelyssä käyttäjä voi määrittää halutun: koon, huoneiden määrän, huoneiden "tyypit" 
 - Tyrmän generoimisen aikana käyttäjä näkisi reaaliajassa tyrmän luomisprosessin ja voisi toistaa prosessin - tehty (tyrmän voi uudelleenluora painamalla r näppäintä, luomisprosessi tapahtuu välittömästi)
-- Tyrmien generoimisen aikana käyttäjä voisi tallentaa tyrmän tekstitiedostona (google docsiin?)
+- Tyrmien generoimisen aikana käyttäjä voisi tallentaa tyrmän tekstitiedostona - tehty (tiedostoja voi nyt tallentaa halutessaan local/saves folderiin)
 
 ## Visuaalinen esimerkki:
 - Inspiraationa toimii Rogue-pelin tasosysteemi, kuva alla:
@@ -25,8 +25,6 @@
 
 ## Käyttäjät
 - EI erityistä tarvetta käyttäjälle
-- Käyttäjätyyppejä olisi vain yksi
-- Käyttäjä voi tallentaa omia luomuksiaan ja avata omia sekä muiden omia
 
 ## Jatkokehitys-Ideoita
 - Tyrmä-Seikkailu olisi kolmas näkymä jossa käyttäjä voisi päättää tutkia tyrmää ohjaamalla pelaajahahmoa

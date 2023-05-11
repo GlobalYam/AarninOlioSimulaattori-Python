@@ -1,4 +1,4 @@
-class PathManager():
+class PathManager:
     """Luokka, joka vastaa polkujen lisäämisestä.
 
     Attributes:
@@ -19,8 +19,14 @@ class PathManager():
         self.temp_grid = False
         self.room_num = 0
 
+    # def find_next(current_rooms, target_rooms):
+    #     add current_rooms.doors to djikstra
+    #     Modify djikstra to make turns more expensive
+    #     "Terminate" on target_rooms.door
+    #     Create path (possibly prettiest one)
+
     def generate_paths(self, room_to_generate_paths_for):
-        """Luokan konstruktori, joka alustaa managerin.
+        """Luokan metodi joka luo polut
 
         Args:
             room_to_generate_paths_for:  Huoneen lukunumero, joka yhdistää poluilla.
@@ -42,7 +48,7 @@ class PathManager():
             temp_paths.append([])
 
             if self.expand_branch(door, temp_grid, temp_paths[door_number]):
-                print('two paths immidiately connected!')
+                print("two paths immidiately connected!")
 
         # print(f'temp_paths for current room: {temp_paths}')
         max_path_lenght = 1000
@@ -60,27 +66,27 @@ class PathManager():
                         temp_paths[i] = []
                         # print('found connection')
 
-                        xx, yy = branch[iter_num]  # pylint: disable=invalid-name
-                        next_coords = temp_grid[yy][xx]  # pylint: disable=invalid-name
+                        xx, yy = branch[iter_num]
+                        next_coords = temp_grid[yy][xx]
                         list_of_path_coords = []
                         # print(f'xx, yy: {xx, yy}')
                         # print(f'next_coords: {next_coords}')
                         # print(branch)
 
-                        self.my_grid_manager.my_grid[yy][xx] = 'X'  # pylint: disable=invalid-name
+                        self.my_grid_manager.my_grid[yy][xx] = "X"
                         list_of_path_coords.append((xx, yy))
 
-                        for rep in range(iter_num):
-                            self.my_grid_manager.my_grid[next_coords[1]
-                                                         ][next_coords[0]] = 'X'
+                        for _ in range(iter_num):
+                            self.my_grid_manager.my_grid[next_coords[1]][
+                                next_coords[0]
+                            ] = "X"
 
                             if temp_grid[next_coords[1]][next_coords[0]] == next_coords:
                                 continue
 
                             list_of_path_coords.append(next_coords)
                             # print(next_coords)
-                            next_coords = temp_grid[next_coords[1]
-                                                    ][next_coords[0]]
+                            next_coords = temp_grid[next_coords[1]][next_coords[0]]
 
                         return list_of_path_coords
             # print(lists_used)
@@ -95,36 +101,33 @@ class PathManager():
         Args:
             path_parent:  polku vanhempi, jota laajentaa.
             grid:  ruudukko johon lisätä uudet haarat
-            temp_paths:  lista johon lisätään lisätyt solut  
+            temp_paths:  lista johon lisätään lisätyt solut
 
         """
         # print(path_parent)
-        x, y = path_parent  # pylint: disable=invalid-name
+        x, y = path_parent
 
         # print(f'y: {y}')
         # print(f'x: {x}')
 
-        tile = grid[y][x]  # pylint: disable=invalid-name
+        tile = grid[y][x]
 
-        if tile == 'D':
-            grid[y][x] = (x, y)  # pylint: disable=invalid-name
+        if tile == "D":
+            grid[y][x] = (x, y)
 
-        try:
-            upper_tile = (x,  y-1)  # pylint: disable=invalid-name
-            lower_tile = (x,  y+1)   # pylint: disable=invalid-name
-            left_tile = (x-1,  y)   # pylint: disable=invalid-name
-            right_tile = (x+1,  y)   # pylint: disable=invalid-name
-        except Exception as exc:
-            raise 'OOPS, INVALID TILE INPUT' from exc
+        upper_tile = (x, y - 1)
+        lower_tile = (x, y + 1)
+        left_tile = (x - 1, y)
+        right_tile = (x + 1, y)
 
         child_tiles = [upper_tile, lower_tile, left_tile, right_tile]
 
         for coords in child_tiles:
             tile = grid[coords[1]][coords[0]]
-            if tile in ('-', '='):
+            if tile in ("-", "="):
                 # checked tile is all good, now it can be set to my tile.
                 grid[coords[1]][coords[0]] = path_parent
                 temp_paths.append(coords)
-            elif tile == 'D':
+            elif tile == "D":
                 return True
         return False

@@ -2,3 +2,10 @@
 __pycache__
 .coverage
 htmlcov
+.vscode
+
+# exclude everything
+local/*
+
+# exception to the rule
+!local/example.txt

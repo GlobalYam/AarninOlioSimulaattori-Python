@@ -7,7 +7,16 @@
 
 'F' - siirry kokonäytön tilaan ja takaisin
 
+'S' - Tallentaa tämänhetkisen kerroksen
+
+'L' - lataa tallennettuja kerroksia järjestyksessä
+
+'U' - Manuaalisesti päivittää näytön 
+
+'P' - Tulostaa tämänhetkisen kerroksen terminaaliin 
+
 'Q' - poistu sovelluksesta
+
 
 ## Merkkien käyttö ja tarkoitus:
 '#'  PERSONAL WALL - Oikea fyysinen seinä, aina jonkin huoneen tai kerroksen oma

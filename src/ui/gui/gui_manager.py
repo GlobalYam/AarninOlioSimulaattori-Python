@@ -46,8 +46,8 @@ class ScreenManager:
         if (screen_h // grid_height) < (screen_w // grid_width):
             self.cell_size = screen_h // grid_height
 
-        self.x_offset = (screen_w - (grid_width)*self.cell_size)//2
-        self.y_offset = (screen_h - (grid_height)*self.cell_size)//2
+        self.x_offset = (screen_w - (grid_width) * self.cell_size) // 2
+        self.y_offset = (screen_h - (grid_height) * self.cell_size) // 2
 
     def draw_screen_from_grid(self, grid_manager):
         """Metodi joka piirtää ikkunaan annetun ruudukon
@@ -66,29 +66,31 @@ class ScreenManager:
                     cell_color = (0, 0, 0)
 
                     match cell:
-                        case '=':
+                        case "=":
                             cell_color = (30, 30, 30)
-                        case '#':
+                        case "#":
                             cell_color = (100, 100, 100)
-                        case  'D':
+                        case "D":
                             cell_color = (80, 80, 80)
-                        case  '.':
+                        case ".":
                             cell_color = (80, 80, 80)
-                        case  '-':
+                        case "-":
                             cell_color = (5, 5, 5)
                         case _:
                             cell_color = (200, 200, 200)
 
                     self.draw_cell_to_screen(grid_manager, x, y, cell_color)
 
-            for i, room_doors in enumerate(grid_manager.door_array):
+            for color_i, room_doors in enumerate(grid_manager.door_array):
                 # get fun colors for each door
-                i += 1
-                color = ((i*i*225*7) % 255, (i*i*225*3) %
-                         255, (i*i*225*9) % 255)
+                color_i += 1
+                color = (
+                    (color_i * color_i * 225 * 7) % 255,
+                    (color_i * color_i * 225 * 3) % 255,
+                    (color_i * color_i * 225 * 9) % 255,
+                )
                 for door in room_doors:
-                    self.draw_cell_to_screen(
-                        grid_manager, door[0], door[1], color)
+                    self.draw_cell_to_screen(grid_manager, door[0], door[1], color)
 
             pg.display.flip()
 
@@ -117,20 +119,18 @@ class ScreenManager:
         if (self.screen_h // grid_height) < (self.screen_w // grid_width):
             self.cell_size = self.screen_h // grid_height
 
-        self.x_offset = (self.screen_w - (grid_width)*self.cell_size)//2
-        self.y_offset = (self.screen_h - (grid_height)*self.cell_size)//2
+        self.x_offset = (self.screen_w - (grid_width) * self.cell_size) // 2
+        self.y_offset = (self.screen_h - (grid_height) * self.cell_size) // 2
 
         x_1 = int(x * self.cell_size) + self.x_offset
         y_1 = int(y * self.cell_size) + self.y_offset
 
         x_2 = self.cell_size
         y_2 = self.cell_size
-        pg.draw.rect(self.display_surf, cell_color,
-                     pg.Rect(x_1, y_1, x_2, y_2))
+        pg.draw.rect(self.display_surf, cell_color, pg.Rect(x_1, y_1, x_2, y_2))
 
     def toggle_fullsreen(self):
-        """Metodi joka vaihtaa kokonäytöntilaa
-        """
+        """Metodi joka vaihtaa kokonäytöntilaa"""
         self.screen_update = True
         if self.fullscreen is False:
             pg.display.set_mode((0, 0), pg.FULLSCREEN)
@@ -138,6 +138,5 @@ class ScreenManager:
             self.fullscreen = True
         else:
             self.screen_w, self.screen_h = self.screen_res_default
-            self.display_surf = pg.display.set_mode(
-                (self.screen_w, self.screen_h))
+            self.display_surf = pg.display.set_mode((self.screen_w, self.screen_h))
             self.fullscreen = False
