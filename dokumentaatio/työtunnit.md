@@ -20,4 +20,5 @@
 | 4.5.2023  | 4      | Docstring ja muu dokumentaatio                                      |
 | 10.5.2023 | 3      | testikattavuuden laajentaminen                                      |
 | 11.5.2023 | 3      | tallentamisen lisäys                                                |
-|    yht    | 48     |                                                                     |
+| 13.5.2023 | 3      | dokumentaatiolisäyksiä                                              |
+|    yht    | 51     |                                                                     |

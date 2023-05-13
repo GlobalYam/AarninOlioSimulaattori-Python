@@ -8,19 +8,32 @@ Inspiraationa Rogue-pelin tasonluontialgoritmi ja monet muut pelit jotka ovat im
 
 Lisää informaatiota voi löytää dokumentaatiosta.
 Käyttöohjeet linkattu alempana.
-
-## RELEASE:
-
-[VIIMEISIN RELEASE](https://github.com/GlobalYam/Python-Tyrma-Generaattori/releases)
  
-DOKUMENTAATIO:
+## Julkaisut: 
 
-[Vaatimusmäärittely](https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/vaatimusmaarittely.md)
+[Viimeisimmät julkaisut](https://github.com/GlobalYam/Python-Tyrma-Generaattori/releases)
+ 
+## Dokumentaatio:
 
-[Työtunnit](https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/työtunnit.md)
+- [Ohje](https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/guide.md)
+- [Vaatimusmäärittely](https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/vaatimusmaarittely.md)
+- [Työtunnit](https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/työtunnit.md)
+- [Changelog](https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/changelog.md)
+- [Arkkitehtuuri](https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/arkkitehtuuri.md)
+ 
+## Asennusohjeet:
+1:
+Lataa riippuvuudet komennolla:
+```bash
+poetry install
+```
 
-[Changelog](https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/changelog.md)
+2:
+Aloita ohjelma komennolla:
+```bash
+poetry run invoke start
+```
 
-[Ohje](https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/guide.md)
-
-[Arkkitehtuuri](https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/arkkitehtuuri.md)
+3:
+Ohjelman näppäinkomennot löytyy ohjeesta:
+- [Ohje](https://github.com/GlobalYam/AarninOlioSimulaattori-Python/blob/main/dokumentaatio/guide.md)

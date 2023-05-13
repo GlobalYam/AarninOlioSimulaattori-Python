@@ -76,6 +76,8 @@ class ScreenManager:
                             cell_color = (80, 80, 80)
                         case "-":
                             cell_color = (5, 5, 5)
+                        case "^":
+                            cell_color = (220, 220, 220)
                         case _:
                             cell_color = (200, 200, 200)
 

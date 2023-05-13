@@ -251,6 +251,9 @@ class GridManager:
 
     def generate_paths(self):
         """Aloittaa prosessin, joka luo polkumanagerin, jolla luodaan polkuja huoneiden välillä"""
+        if len(self.door_array) == 0:
+            return
+        
         if len(self.door_array) <= self.next_room_to_connect:
             self.next_room_to_connect = 0
 
