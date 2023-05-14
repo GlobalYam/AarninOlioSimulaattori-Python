@@ -34,7 +34,9 @@ class ScreenManager:
 
         # fullscreen_offsets
         self.screen_res_default = (screen_w, screen_h)
-        self.screen_w, self.screen_h = self.screen_res_default
+        self.screen_res_current = self.screen_res_default
+
+        screen_w, screen_h = self.screen_res_current
 
         self.display_surf = pg.display.set_mode((screen_w, screen_h))
 
@@ -46,8 +48,10 @@ class ScreenManager:
         if (screen_h // grid_height) < (screen_w // grid_width):
             self.cell_size = screen_h // grid_height
 
-        self.x_offset = (screen_w - (grid_width) * self.cell_size) // 2
-        self.y_offset = (screen_h - (grid_height) * self.cell_size) // 2
+        x_offset = (screen_w - (grid_width) * self.cell_size) // 2
+        y_offset = (screen_h - (grid_height) * self.cell_size) // 2
+
+        self.offsets = (x_offset, y_offset)
 
     def draw_screen_from_grid(self, grid_manager):
         """Metodi joka piirtää ikkunaan annetun ruudukon
@@ -57,6 +61,8 @@ class ScreenManager:
         """
         if grid_manager.update() or self.screen_update:
             print("screen_updated")
+            self.display_surf.fill((0, 0, 0))
+
             self.screen_update = False
             grid = grid_manager.my_grid
 
@@ -109,23 +115,25 @@ class ScreenManager:
         # x_fullscreen_offset = 0
         # y_fullscreen_offset = 0
         # if self.fullscreen:
-        #     x_fullscreen_offset = self.screen_w//2
-        #     y_fullscreen_offset = self.screen_h//2
+        #     x_fullscreen_offset = screen_w//2
+        #     y_fullscreen_offset = screen_h//2
 
         grid_width = grid_manager.grid_width
         grid_height = grid_manager.grid_height
 
+        screen_w, screen_h = self.screen_res_current
+
         # Check if cell cize is restricted by having to fit grid to width or height
-        self.cell_size = self.screen_w // grid_width
+        self.cell_size = screen_w // grid_width
 
-        if (self.screen_h // grid_height) < (self.screen_w // grid_width):
-            self.cell_size = self.screen_h // grid_height
+        if (screen_h // grid_height) < (screen_w // grid_width):
+            self.cell_size = screen_h // grid_height
 
-        self.x_offset = (self.screen_w - (grid_width) * self.cell_size) // 2
-        self.y_offset = (self.screen_h - (grid_height) * self.cell_size) // 2
+        x_offset = (screen_w - (grid_width) * self.cell_size) // 2
+        y_offset = (screen_h - (grid_height) * self.cell_size) // 2
 
-        x_1 = int(x * self.cell_size) + self.x_offset
-        y_1 = int(y * self.cell_size) + self.y_offset
+        x_1 = int(x * self.cell_size) + x_offset
+        y_1 = int(y * self.cell_size) + y_offset
 
         x_2 = self.cell_size
         y_2 = self.cell_size
@@ -136,9 +144,9 @@ class ScreenManager:
         self.screen_update = True
         if self.fullscreen is False:
             pg.display.set_mode((0, 0), pg.FULLSCREEN)
-            self.screen_w, self.screen_h = pg.display.get_window_size()
+            self.screen_res_current = pg.display.get_window_size()
             self.fullscreen = True
         else:
-            self.screen_w, self.screen_h = self.screen_res_default
-            self.display_surf = pg.display.set_mode((self.screen_w, self.screen_h))
+            self.screen_res_current = self.screen_res_default
+            self.display_surf = pg.display.set_mode(self.screen_res_current)
             self.fullscreen = False

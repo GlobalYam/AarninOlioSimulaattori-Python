@@ -36,6 +36,8 @@ class GridManager:
         """Mikäli ruudukko viimeksi päivitettiin, aseta päivitys epätodeksi"""
         if self.grid_updated:
             self.grid_updated = False
+            self.grid_width = len(self.my_grid[0])
+            self.grid_height = len(self.my_grid)
             # print(self.my_grid)
             # print(self.door_array)
             return True
@@ -103,7 +105,7 @@ class GridManager:
             fail_counter_max = 30
 
             while (
-                self.place_room(self.my_grid, x, y, starting_room) is False
+                self.place_room(self.my_grid, (x, y), starting_room) is False
                 and fail_counter < fail_counter_max
             ):
                 x = randint(1, grid_width)  # pylint: disable=invalid-name
@@ -111,7 +113,7 @@ class GridManager:
                 fail_counter += 1
         else:
             self.place_room(
-                self.my_grid, grid_width // 2, grid_height // 2, starting_room
+                self.my_grid, (grid_width // 2, grid_height // 2), starting_room
             )
 
         fail_counter = 0
@@ -122,7 +124,7 @@ class GridManager:
             y = randint(1, grid_height - 1)  # pylint: disable=invalid-name
 
             while (
-                self.place_room(self.my_grid, x, y, room) is False
+                self.place_room(self.my_grid, (x, y), room) is False
                 and fail_counter < fail_counter_max
             ):
                 x = randint(1, grid_width)  # pylint: disable=invalid-name
@@ -130,9 +132,7 @@ class GridManager:
                 fail_counter += 1
         return self.my_grid
 
-    def place_room(
-        self, grid: list, rm_x: int, rm_y: int, room: list, place_by_center=True
-    ):
+    def place_room(self, grid: list, coords: tuple, room: list, place_by_center=True):
         """Pyrkii asettamaan annetun huoneen ruudukkoon kordinaattien persteella
 
         Args:
@@ -143,6 +143,7 @@ class GridManager:
             place_by_center: True: huone asetetaan keskipisteensä perusteella,
                              False: huone asetetaan vasemman yläkulman perusteella
         """
+        rm_x, rm_y = coords
         self.grid_updated = True
 
         room = self.string_room_to_array_room(room)
@@ -158,7 +159,7 @@ class GridManager:
             rm_y -= room_height // 2
 
         # check_if_free
-        if not self.check_if_free(grid, rm_x, rm_y, room_height, room_width):
+        if not self.check_if_free(grid, (rm_x, rm_y), (room_height, room_width)):
             return False
 
         # place aura to grid
@@ -182,10 +183,8 @@ class GridManager:
     def check_if_free(
         self,
         grid: list,
-        rm_x: int,
-        rm_y: int,
-        room_height: int,
-        room_width: int,
+        coords: tuple,
+        room_size: tuple,
         exeptions=None,
     ):
         """Tarkistaa onko annettu neliö vapaana ruudukossa
@@ -198,6 +197,9 @@ class GridManager:
             room_width:  neliön/huoneen leveys
             exeptions:   Mitkä merkit tulkitaan vapaaksi soluksi
         """
+        rm_x, rm_y = coords
+        room_height, room_width = room_size
+
         if exeptions is None:
             exeptions = [None]
 
@@ -253,7 +255,7 @@ class GridManager:
         """Aloittaa prosessin, joka luo polkumanagerin, jolla luodaan polkuja huoneiden välillä"""
         if len(self.door_array) == 0:
             return
-        
+
         if len(self.door_array) <= self.next_room_to_connect:
             self.next_room_to_connect = 0
 
@@ -288,10 +290,10 @@ class GridManager:
             ]
 
             for cell_to_seal in surrounding_cels:
-                self.place_tile(self.my_grid, cell_to_seal[0], cell_to_seal[1], "#")
+                self.place_tile(self.my_grid, (cell_to_seal[0], cell_to_seal[1]), "#")
         self.next_room_to_connect += 1
 
-    def place_tile(self, grid: list, t_x: int, t_y: int, tile: str, exeptions=None):
+    def place_tile(self, grid: list, tile_coords: tuple, tile: str, exeptions=None):
         """Metodi asettaa yhden solun annettuun ruudukon soluun,
             jos ruudukon solu on tyhjä, tai exeptions listaan kuuluva
 
@@ -302,11 +304,13 @@ class GridManager:
             tile: solu joka asettaa annettuun kohtaan
             exeptions: solut jotka saadaan korvata
         """
+        t_x, t_y = tile_coords
+
         if exeptions is None:
             exeptions = ["="]
         self.grid_updated = True
 
-        if not self.check_if_free(grid, t_x, t_y, 1, 1, exeptions):
+        if not self.check_if_free(grid, (t_x, t_y), (1, 1), exeptions):
             return False
 
         grid[t_y][t_x] = tile
@@ -324,7 +328,6 @@ class GridManager:
             path,
             f"saved_floor_{new_number}.txt",
             self.room_to_string_room(self.my_grid),
-            self.door_array,
         )
 
     def load_floor(self, path):

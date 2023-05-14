@@ -82,7 +82,7 @@ class TestGridManager(unittest.TestCase):
         self.manager = GridManager()
         self.floor = self.manager.clear_floor(self.w, self.h)
 
-        free = self.manager.check_if_free(self.manager.my_grid, 10, 10, 1, 1)
+        free = self.manager.check_if_free(self.manager.my_grid, (10, 10), (1, 1))
 
         self.assertEqual(free, True)
 

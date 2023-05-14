@@ -55,26 +55,28 @@ class PathManager:
         for iter_num in range(0, max_path_lenght):
             lists_used = 4
             # print(f'handling branch repeat num: {iter_num}')
-            for i, branch in enumerate(temp_paths):
-                # print(f'branch_len, branh_num {len(branch), i}')
+            for iterator, branch in enumerate(temp_paths):
+                # print(f'branch_len, branh_num {len(branch), iterator}')
                 lenght = len(branch)
                 if lenght == 0:
                     lists_used -= 1
                     continue
                 if lenght > iter_num:
-                    if self.expand_branch(branch[iter_num], temp_grid, temp_paths[i]):
-                        temp_paths[i] = []
+                    if self.expand_branch(
+                        branch[iter_num], temp_grid, temp_paths[iterator]
+                    ):
+                        temp_paths[iterator] = []
                         # print('found connection')
 
-                        xx, yy = branch[iter_num]
-                        next_coords = temp_grid[yy][xx]
+                        x_coord, y_coord = branch[iter_num]
+                        next_coords = temp_grid[y_coord][x_coord]
                         list_of_path_coords = []
-                        # print(f'xx, yy: {xx, yy}')
+                        # print(f'x_coord, y_coord: {x_coord, y_coord}')
                         # print(f'next_coords: {next_coords}')
                         # print(branch)
 
-                        self.my_grid_manager.my_grid[yy][xx] = "X"
-                        list_of_path_coords.append((xx, yy))
+                        self.my_grid_manager.my_grid[y_coord][x_coord] = "X"
+                        list_of_path_coords.append((x_coord, y_coord))
 
                         for _ in range(iter_num):
                             self.my_grid_manager.my_grid[next_coords[1]][

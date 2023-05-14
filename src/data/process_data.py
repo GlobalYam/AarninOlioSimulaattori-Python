@@ -18,8 +18,8 @@ def read_room_data_from_dir(path):
     ]
 
 
-def write_room_data(path, name, grid, door_coords):
-    with open(f"{path}/{name}", "x") as file:
+def write_room_data(path, name, grid):
+    with open(f"{path}/{name}", "x", encoding="utf-8") as file:
         for line in grid:
             file.write(f"{line}")
     return file

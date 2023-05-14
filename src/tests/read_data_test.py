@@ -16,4 +16,4 @@ class TestReadRoomDataFromDir(unittest.TestCase):
 
         print(room_to_read)
 
-        self.assertEqual(room_to_read, [["##D##", "#...#", "D...D", "#...#", "##D##"]])
+        self.assertEqual(room_to_read, [["##D##", "#...#", "D.^.D", "#...#", "##D##"]])

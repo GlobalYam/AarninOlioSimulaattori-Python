@@ -21,4 +21,5 @@
 | 10.5.2023 | 3      | testikattavuuden laajentaminen                                      |
 | 11.5.2023 | 3      | tallentamisen lisäys                                                |
 | 13.5.2023 | 3      | dokumentaatiolisäyksiä                                              |
-|    yht    | 51     |                                                                     |
+| 14.5.2023 | 3      | viimeiset korjaukset                                                |
+|    yht    | 54     |                                                                     |
